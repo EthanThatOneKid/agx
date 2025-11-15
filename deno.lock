@@ -9,7 +9,9 @@
     "jsr:@std/fs@~0.220.1": "0.220.1",
     "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/path@~0.220.1": "0.220.1",
-    "npm:ai@^5.0.93": "5.0.93_zod@4.1.12"
+    "npm:ai@^5.0.93": "5.0.93_zod@4.1.12",
+    "npm:zod@^4.1.12": "4.1.12",
+    "npm:zod@latest": "4.1.12"
   },
   "jsr": {
     "@cross/deepmerge@1.0.0": {
@@ -111,7 +113,8 @@
     "dependencies": [
       "jsr:@fartlabs/jsonx@^0.0.11",
       "jsr:@std/assert@^1.0.15",
-      "npm:ai@^5.0.93"
+      "npm:ai@^5.0.93",
+      "npm:zod@^4.1.12"
     ]
   }
 }

@@ -10,28 +10,38 @@ export interface AgentProps
 }
 
 /**
- * FunctionalAgentSettings is a function that imperatively sets the agent's settings.
+ * FunctionalAgentSettings is a function that modifies the agent's settings.
  */
 export type FunctionalAgentSettings = (
-  agent: InstanceType<typeof Experimental_Agent>,
-) => void;
+  settings: Experimental_AgentSettings<ToolSet, never, never>,
+) => Experimental_AgentSettings<ToolSet, never, never>;
 
 /**
  * Agent is a component that creates an agent with the given settings.
+ * The Agent component provides a structured way to encapsulate LLM configuration,
+ * tools, and behavior into reusable components. It handles the agent loop for you,
+ * allowing the LLM to call tools multiple times in sequence to accomplish complex
+ * tasks. Define agents once and use them across your application.
  */
-export function Agent(props: AgentProps) {
-  const { children, ...settings } = props;
-  const agent = new Experimental_Agent(settings);
+export function Agent(
+  props: AgentProps,
+): InstanceType<typeof Experimental_Agent> {
+  const { children, ...initialSettings } = props;
 
-  // Process children if they exist and are functions
+  let agentSettings: Experimental_AgentSettings<ToolSet, never, never> =
+    initialSettings;
   if (children) {
     const childrenArray = Array.isArray(children) ? children : [children];
     childrenArray.forEach((child) => {
-      if (typeof child === "function") {
-        child(agent);
+      if (typeof child !== "function") {
+        throw new Error(
+          "Agent child must be a function that modifies the agent's settings",
+        );
       }
+
+      agentSettings = child(agentSettings);
     });
   }
 
-  return agent;
+  return new Experimental_Agent(agentSettings);
 }

@@ -1,17 +1,17 @@
 # `@fartlabs/agx`
 
-agx is a JSX agent development system.
+> INTEGRATE ANY MODEL PROVIDER WITH A SINGLE API
+>
+> FOCUS ON BUILDING THE BEST USER EXPERIENCE
+>
+> STAY IN THE FLOW DURING DEVELOPMENT
 
-> The Agent component provides a structured way to encapsulate LLM
-> configuration, tools, and behavior into reusable components. It handles the
-> agent loop for you, allowing the LLM to call tools multiple times in sequence
-> to accomplish complex tasks. Define agents once and use them across your
-> application.
+agx is a JSX agent development system.
 
 ## What are Agents?
 
-Agents are **large language models (LLMs)** that use **tools** in a **loop** to
-accomplish tasks.
+Agents are **large language models (LLMs)** that use **tools** until the task is
+complete.
 
 These components work together:
 
@@ -54,11 +54,12 @@ function WeatherAgent() {
         name="weather"
         description="Get the weather in a location (in Fahrenheit)"
         inputSchema={z.object({
-          location: z.string()
-            .describe("The location to get the weather for"),
+          location: z.string().describe(
+            "The location to get the weather for",
+          ),
         })}
-        execute={({ location }) => ({
-          location,
+        execute={(args) => ({
+          location: args.location,
           temperature: 72 + Math.floor(Math.random() * 21) - 10,
         })}
       />
@@ -66,11 +67,12 @@ function WeatherAgent() {
         name="convertFahrenheitToCelsius"
         description="Convert temperature from Fahrenheit to Celsius"
         inputSchema={z.object({
-          temperature: z.number()
-            .describe("Temperature in Fahrenheit"),
+          temperature: z.number().describe(
+            "Temperature in Fahrenheit",
+          ),
         })}
-        execute={({ temperature }) => {
-          const celsius = Math.round((temperature - 32) * (5 / 9));
+        execute={(args) => {
+          const celsius = Math.round((args.temperature - 32) * (5 / 9));
           return { celsius };
         }}
       />
