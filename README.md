@@ -12,24 +12,8 @@ complete.
 agx provides a declarative way to build AI agents using JSX syntax and AI SDK
 primitives.
 
-These components work together:
-
-- **LLMs** process input and decide the next action
-- **Tools** extend capabilities beyond text generation (reading files, calling
-  APIs, writing to databases)
-- **Loop** orchestrates execution through:
-  - **Context management** - Maintaining conversation history and deciding what
-    the model sees (input) at each step
-  - **Stopping conditions** - Determining when the loop (task) is complete
-
 The `Agent` component handles these three components for you. It is the
 recommended approach for building agents with agx because it:
-
-- **Reduces boilerplate** - Manages loops and message arrays automatically
-- **Improves reusability** - Define once, use throughout your application
-- **Simplifies maintenance** - Single place to update agent configuration
-- **Type safety** - Get full TypeScript support for your agent's tools and
-  outputs
 
 ## Creating an Agent
 
@@ -92,6 +76,16 @@ console.log(result.steps); // steps taken by the agent
 
 For more information on using an instance of the Agent component, see the
 [AI SDK documentation](https://ai-sdk.dev/docs/agents/building-agents#using-an-agent).
+
+## Examples
+
+See the [examples](./examples) directory for more examples.
+
+Run the weather example:
+
+```
+deno --env -A examples/weather/main.tsx
+```
 
 ---
 
