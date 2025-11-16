@@ -9,8 +9,7 @@
     "jsr:@std/fs@~0.220.1": "0.220.1",
     "jsr:@std/internal@^1.0.12": "1.0.12",
     "jsr:@std/path@~0.220.1": "0.220.1",
-    "npm:@ai-sdk/google@*": "2.0.32_zod@4.1.12",
-    "npm:@ai-sdk/google@^2.0.32": "2.0.32_zod@4.1.12",
+    "npm:@ai-sdk/google@^2.0.33": "2.0.33_zod@4.1.12",
     "npm:ai@^5.0.93": "5.0.93_zod@4.1.12",
     "npm:zod@^4.1.12": "4.1.12",
     "npm:zod@latest": "4.1.12"
@@ -67,8 +66,8 @@
         "zod"
       ]
     },
-    "@ai-sdk/google@2.0.32_zod@4.1.12": {
-      "integrity": "sha512-tQh15Eo+qcW2Yx1fqIT/iBf9sUAsEzx8oriyxMQAGLYMlZBG6EGs1ftNWQIwWqmAjz8q9FH0WjKs18E5522JjA==",
+    "@ai-sdk/google@2.0.33_zod@4.1.12": {
+      "integrity": "sha512-Mi8GbW6hw7VFvyrghjP8JI7FQoXRs0w1MOS/shrksN+X8hMEcIF/+KXNFrjopOy7EA12NUpKAlJkWiTpjsLHGw==",
       "dependencies": [
         "@ai-sdk/provider",
         "@ai-sdk/provider-utils",
@@ -123,7 +122,7 @@
     "dependencies": [
       "jsr:@fartlabs/jsonx@^0.0.11",
       "jsr:@std/assert@^1.0.15",
-      "npm:@ai-sdk/google@^2.0.32",
+      "npm:@ai-sdk/google@^2.0.33",
       "npm:ai@^5.0.93",
       "npm:zod@^4.1.12"
     ]

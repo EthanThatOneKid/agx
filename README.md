@@ -1,5 +1,9 @@
 # `@fartlabs/agx`
 
+[![GitHub Actions](https://github.com/FartLabs/agx/actions/workflows/check.yaml/badge.svg)](https://github.com/FartLabs/agx/actions/workflows/check.yaml)
+[![JSR](https://jsr.io/badges/@fartlabs/agx)](https://jsr.io/@fartlabs/agx)
+[![JSR score](https://jsr.io/badges/@fartlabs/agx/score)](https://jsr.io/@fartlabs/agx/score)
+
 agx is a JSX agent development system.
 
 ## What are Agents?
@@ -12,8 +16,13 @@ complete.
 agx provides a declarative way to build AI agents using JSX syntax and AI SDK
 primitives.
 
-The `Agent` component handles these three components for you. It is the
-recommended approach for building agents with agx because it:
+- **LLMs** process input and decide the next action
+- **Tools** extend capabilities beyond text generation (reading files, calling
+  APIs, writing to databases)
+- **Loop** orchestrates execution through:
+  - **Context management** - Maintaining conversation history and deciding what
+    the model sees (input) at each step
+  - **Stopping conditions** - Determining when the loop (task) is complete
 
 ## Creating an Agent
 
